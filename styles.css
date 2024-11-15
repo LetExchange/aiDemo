@@ -1,0 +1,597 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background-color: #1a1a1a;
+    color: #e1e1e1;
+}
+
+.navbar {
+    background-color: #2d2d2d;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.prompt-section,
+.generating-section,
+.gallery-section {
+    background-color: #2d2d2d;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.prompt-section h2 {
+    margin-bottom: 1.5rem;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.prompt-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.prompt-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #363636;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #404040;
+}
+
+textarea {
+    flex: 1;
+    min-height: 150px;
+    padding: 1rem;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    resize: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    background-color: #2d2d2d;
+    color: #e1e1e1;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.prompt-tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.prompt-tip {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.prompt-tip i {
+    color: #007bff;
+}
+
+.generate-btn {
+    align-self: flex-end;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.generate-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.generate-btn i {
+    font-size: 1.2rem;
+}
+
+.generating-section {
+    background-color: #2a2a2a;
+}
+
+.generating-container {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    align-items: flex-start;
+}
+
+.gallery-section {
+    background-color: #2d2d2d;
+}
+
+.gallery-filters {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #404040;
+    border-radius: 6px;
+    background-color: #363636;
+    color: #e1e1e1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.image-gallery {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    overflow-y: auto;
+}
+
+.image-card {
+    background-color: #363636;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.image-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.faq-section {
+    margin-top: 2rem;
+    background-color: #2d2d2d;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.faq-container {
+    margin-top: 1rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid #404040;
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.faq-answer {
+    padding: 0 0 1rem 0;
+    color: #b0b0b0;
+    display: none;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.pricing-section {
+    margin-top: 2rem;
+    background-color: #2d2d2d;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.pricing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.pricing-card {
+    position: relative;
+    padding: 2rem;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    background-color: #363636;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card.popular {
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.pricing-header {
+    margin-bottom: 2rem;
+}
+
+.pricing-header h3 {
+    color: #e1e1e1;
+    margin-bottom: 1rem;
+}
+
+.price {
+    color: #007bff;
+}
+
+.price .amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.price .period {
+    color: #666;
+    font-size: 1rem;
+}
+
+.pricing-features {
+    list-style: none;
+    margin: 2rem 0;
+    padding: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.pricing-features li {
+    padding: 0.5rem 0;
+    color: #b0b0b0;
+}
+
+.pricing-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+.pricing-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .pricing-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+} 
+
+/* 修改生成区域的样式 */
+.generating-section {
+    margin-top: 2rem;
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #404040;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.05);
+}
+
+.generating-section h2 {
+    color: #0056b3;
+}
+
+.generating-section h2 i {
+    color: #007bff;
+    margin-right: 0.5rem;
+}
+
+.generating-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    min-height: 220px;
+}
+
+/* 修改生成中的卡片样式 */
+.generating-container .image-card {
+    background-color: #363636;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    padding: 1rem;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #007bff;
+}
+
+/* 修改滚动条样式 */
+.generating-container::-webkit-scrollbar,
+.image-gallery::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.generating-container::-webkit-scrollbar-track,
+.image-gallery::-webkit-scrollbar-track {
+    background: #363636;
+    border-radius: 4px;
+}
+
+.generating-container::-webkit-scrollbar-thumb,
+.image-gallery::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
+}
+
+.generating-container::-webkit-scrollbar-thumb:hover,
+.image-gallery::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+} 
+
+/* 暗黑模式基础样式 */
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background-color: #1a1a1a;
+    color: #e1e1e1;
+}
+
+/* 导航栏暗色 */
+.navbar {
+    background-color: #2d2d2d;
+}
+
+/* 主要区块暗色 */
+.prompt-section, .generating-section, .gallery-section, 
+.pricing-section, .faq-section {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 文本输入框暗色 */
+textarea {
+    background-color: #363636;
+    border-color: #404040;
+    color: #e1e1e1;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* 生成区域暗色 */
+.generating-section {
+    background-color: #2a2a2a;
+    border-color: #404040;
+}
+
+.generating-container .image-card {
+    background-color: #363636;
+    border-color: #404040;
+}
+
+/* 图片卡片暗色 */
+.image-card {
+    background-color: #363636;
+}
+
+/* 价格卡片暗色 */
+.pricing-card {
+    background-color: #363636;
+    border-color: #404040;
+}
+
+.pricing-card.popular {
+    border-color: #007bff;
+}
+
+.pricing-header h3 {
+    color: #e1e1e1;
+}
+
+.pricing-features li {
+    color: #b0b0b0;
+}
+
+/* FAQ暗色 */
+.faq-item {
+    border-bottom-color: #404040;
+}
+
+.faq-answer {
+    color: #b0b0b0;
+}
+
+/* 页脚暗色调整 */
+.site-footer {
+    background-color: #2d2d2d;
+    color: #e1e1e1;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: #e1e1e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #007bff;
+}
+
+.footer-bottom {
+    border-top: 1px solid #404040;
+    padding-top: 1rem;
+    text-align: center;
+    color: #888;
+}
+
+/* 价格卡片布局优化 */
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.pricing-features {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.pricing-btn {
+    margin-top: auto;
+}
+
+/* 滚动条暗色 */
+.generating-container::-webkit-scrollbar-track {
+    background: #363636;
+}
+
+.generating-container::-webkit-scrollbar-thumb {
+    background: #007bff;
+}
+
+.generating-container::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+/* 按钮悬停效果 */
+.pricing-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* 其他暗色调整 */
+.prompt-tip {
+    color: #b0b0b0;
+}
+
+.section-subtitle {
+    color: #b0b0b0;
+}
+
+/* 英雄区域暗色 */
+.hero-section {
+    color: #e1e1e1;
+}
+
+.hero-subtitle {
+    color: #b0b0b0;
+} 
